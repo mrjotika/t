@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.card {
+  width: 60px;
+  height: 90px;
+  position: relative;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+.card-front {
+  background: white;
+  border: 2px solid #ddd;
+  transform: rotateY(180deg);
+}
+.card-back {
+  background: linear-gradient(145deg, #1e3c72, #2a5298);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #ffd700;
+}
+@keyframes winner-pulse {
+  0%, 100% { box-shadow: 0 0 10px rgba(255,215,0,0.5); }
+  50% { box-shadow: 0 0 20px rgba(255,215,0,0.8); }
+}
+.modal-overlay {
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+}
